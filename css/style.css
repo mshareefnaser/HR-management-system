@@ -1,0 +1,33 @@
+
+header{
+    background-color: darkkhaki;
+    top: 0;
+    position: absolute;
+    width: 100%;
+    height: 60px;
+}
+footer{
+    background-color: darkkhaki;
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+    height: 50px;
+}
+nav ul li {
+    display: inline-block;
+    position: relative;
+    right: 20% ;
+}
+#employee-info {
+    background-color: #f2f2f2;
+    padding: 10px;
+    text-align: center;
+    width: 50%;
+    margin: 100px auto;
+    border: 1px solid #333;
+    border-radius: 10px;
+  }
+  tc{
+    padding: 20px;
+  }
+  
