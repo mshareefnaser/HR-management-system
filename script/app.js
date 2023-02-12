@@ -29,7 +29,7 @@ function Employee(id, name, department, level, imageURL) {
   }
   
   Employee.prototype.render=function() {
-    return `<tc>Employee: ${this.name}</tc><tc>Salary: $${this.salary}</tc>`;
+    return `<h4>Employee: ${this.name} &nbsp;&nbsp;&nbsp; Salary: $${this.salary}</h4>`;
   }
 const e1=new Employee(1000, 'Ghazi Samer', 'Administration', 'Senior');
 const e2 = new Employee(1001, 'Lana Ali', 'Finance', 'Senior');
@@ -42,5 +42,7 @@ const e7 = new Employee(1006, 'Hadi Ahmad', 'Finance', 'Mid-Senior');
 document.getElementById('employee-info').innerHTML = e1.render();
 document.getElementById('employee-info').innerHTML += e2.render();
 document.getElementById('employee-info').innerHTML += e3.render();
-
-  
+document.getElementById('employee-info').innerHTML += e4.render();
+document.getElementById('employee-info').innerHTML += e5.render();
+document.getElementById('employee-info').innerHTML += e6.render();
+document.getElementById('employee-info').innerHTML += e7.render();  
