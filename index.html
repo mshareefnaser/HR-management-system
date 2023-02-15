@@ -21,6 +21,41 @@
     </header>
     <main>
         <div id="employee-info"></div>
+        <form id="addEmployeeForm">
+            <fieldset style="border: solid;">
+                <legend>Add New Employee:</legend>
+                <label for="fname">Full name</label>
+                <input type="text" name="fname" id="fname" placeholder="write full name">
+                <br>
+                <br>
+                <h3>Department</h3>
+                <br>
+                <input type="radio" name="dept" id="adminstration" value="Adminstration">
+                <label for="adminstration">Adminstration</label>
+                <input type="radio" name="dept" id="marketing" value="Marketing">
+                <label for="marketing">Marketing</label>
+                <input type="radio" name="dept" id="development" value="Development">
+                <label for="development">Development</label>
+                <input type="radio" name="dept" id="finance" value="Finance">
+                <label for="finance">Finance</label>
+                <br>
+                <br>
+                <h3>Level</h3>
+                <input type="radio" name="level" id="junior" value="Junior">
+                <label for="junior">Junior</label>
+                <input type="radio" name="level" id="mid-senior" value="Mid-Senior">
+                <label for="mid-senior">Mid-Senior</label>
+                <input type="radio" name="level" id="senior" value="Senior">
+                <label for="senior">Senior</label>
+                <br>
+                <br>
+                <label for="imgURL">Image URL:</label>
+                <input type="text" id="imgURL" placeholder="personal image URL">
+                <br>
+                <br>
+                <input type="submit" value="Add"> 
+            </fieldset>
+        </form>
     </main>
     <footer>
         <script src="./script/app.js"></script>
@@ -32,6 +67,5 @@
             </ul>
         </nav>
     </footer>
-    <script src="./script/app.js"></script>
 </body>
 </html>
