@@ -1,4 +1,4 @@
-let employeesNumber=1000;
+let employeesNumber = 1000;
 function Employee(name, department, level, imageURL) {
   this.id = this.generateID();
   this.name = name;
@@ -7,9 +7,9 @@ function Employee(name, department, level, imageURL) {
   this.imageURL = imageURL;
   this.salary = this.calculateSalary();
 }
-Employee.prototype.generateID = function (){
+Employee.prototype.generateID = function () {
   employeesNumber++;
-  let generatedNumber=employeesNumber;
+  let generatedNumber = employeesNumber;
   return generatedNumber;
 }
 
@@ -52,9 +52,72 @@ Employee.prototype.calculateSalary = function () {
 // document.getElementById('employee-info').innerHTML += e5.render();
 // document.getElementById('employee-info').innerHTML += e6.render();
 // document.getElementById('employee-info').innerHTML += e7.render();  
-let empForm=document.getElementById("addEmployeeForm");
-empForm.addEventListener("Add", addNewEmployeeHandler);
-function addNewEmployeeHandler (event)
-{
-  let empName=event.target.name.value;
+Employee.prototype.render = function () {
+  const container = document.getElementById('employee-info');
+
+  const cardEl = document.createElement('div');
+  container.appendChild(cardEl);
+
+  const imgEl = document.createElement('img');
+  imgEl.setAttribute('src', this.imageURL);
+  imgEl.width = "150";
+  imgEl.height = "150";
+  cardEl.appendChild(imgEl);
+
+  const nameEl = document.createElement('h3');
+  cardEl.appendChild(nameEl);
+  nameEl.textContent = `Name: ${this.name}`;
+
+  const idEl = document.createElement('h3');
+  cardEl.appendChild(idEl);
+  idEl.textContent = `ID: ${this.id}`;
+
+  const deptEl = document.createElement('h3');
+  cardEl.appendChild(deptEl);
+  deptEl.textContent = `Department: ${this.department}`;
+
+  const levelEl=document.createElement('h3');
+  cardEl.appendChild(levelEl);
+  levelEl.textContent= `Level: ${this.level}`;
+
+
+  const salaryEl=document.createElement('h3');
+  cardEl.appendChild(salaryEl);
+  salaryEl.textContent=this.salary;
+}
+
+
+let empForm = document.getElementById("addEmployeeForm");
+empForm.addEventListener('submit', addNewEmployeeHandler);
+function addNewEmployeeHandler(event) {
+  event.preventDefault();
+  let empName = event.target.fname.value;
+  let empDept = getSelectedDept();
+  let empLevel = getSelectedLevel();
+  let empImg = event.target.imgURL.value;
+
+  function getSelectedDept() {
+    const radios = document.getElementsByName('dept');
+    let selectedDept;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selectedDept = radios[i].value;
+        break;
+      }
+    }
+    return selectedDept;
+  }
+  function getSelectedLevel() {
+    const radios = document.getElementsByName('level');
+    let selectedlevel;
+    for (let i = 0; i < radios.length; i++) {
+      if (radios[i].checked) {
+        selectedlevel = radios[i].value;
+        break;
+      }
+    }
+    return selectedlevel;
+  }
+  let newEmp=new Employee(empName,empDept,empLevel,empImg);
+  newEmp.render();
 }
